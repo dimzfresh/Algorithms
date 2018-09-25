@@ -1,1 +1,1 @@
-# swift_algorithm
+Hi there! Here you'll find implementations of basic algorithms
