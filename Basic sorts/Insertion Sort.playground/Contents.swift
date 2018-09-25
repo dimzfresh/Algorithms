@@ -4,23 +4,20 @@ import UIKit
 
 let array = [7, -5, 0, 1, 14, 98, -21, 11, 10]
 
-func sort(array: [Int]) -> [Int] {
-    guard array.count != 1 else { return array }
+func sort(items: [Int]) -> [Int] {
+    guard items.count != 1 else { return array }
     
-    var sortedArray = [Int]()
+    var sortedArray = items
     
-    for index in 1..<array.count {
-        var number = array[index]
+    for index in 1..<sortedArray.count {
+        let number = sortedArray[index]
         
-        var i = index //current index
+        var i = index
         
-        while i > 0 {
-            if number < array[i - 1] {
-                sortedArray.insert(number, at: i - 1)
-            } else {
-                number = array[i - 1]
-                sortedArray.insert(number, at: i - 1)
-            }
+        while i > 0 && sortedArray[i - 1] > number {
+            sortedArray[i] = sortedArray[i - 1]
+            sortedArray[i - 1] = number
+            
             i -= 1
         }
         
@@ -28,6 +25,4 @@ func sort(array: [Int]) -> [Int] {
     return sortedArray
 }
 
-let newArray = sort(array: array)
-
-newArray
+let newArray = sort(items: array)
